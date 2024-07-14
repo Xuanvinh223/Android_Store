@@ -17,13 +17,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.example.store.databinding.ActivityCategoryBinding;
+import com.example.store.databinding.ActivityProductCategoryBinding;
 
 import java.util.List;
 
 public class ProductCategoryActivity extends AppCompatActivity {
 
-    private ActivityCategoryBinding binding;
+    private ActivityProductCategoryBinding binding;
     private RecyclerView recyclerView;
     private ProductAdapter productAdapter;
     private List<Product> productList;
@@ -33,7 +33,7 @@ public class ProductCategoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityCategoryBinding.inflate(getLayoutInflater());
+        binding = ActivityProductCategoryBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         notificationHelper = new NotificationHelper(getApplicationContext(), getSupportFragmentManager());
         intent = getIntent();
