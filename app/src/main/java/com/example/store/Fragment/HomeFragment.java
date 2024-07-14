@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.store.Adapter.ProductAdapter;
-import com.example.store.CategoryActivity;
+import com.example.store.ProductCategoryActivity;
 import com.example.store.interfaces.OnItemClickListener;
 import com.example.store.R;
 import com.example.store.Adapter.CategoryAdapter;
@@ -56,7 +56,7 @@ public class HomeFragment extends Fragment {
             public void onItemClick(View view,int position) {
                 long categoryId = categoriesData.get(position).getId();
                 String categoryName = categoriesData.get(position).getName();
-                Intent intent = new Intent(getActivity(), CategoryActivity.class);
+                Intent intent = new Intent(getActivity(), ProductCategoryActivity.class);
                 intent.putExtra("CATEGORY_ID", categoryId);
                 intent.putExtra("CATEGORY_NAME",categoryName);
                 startActivity(intent);

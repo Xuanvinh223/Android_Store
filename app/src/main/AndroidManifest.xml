@@ -37,7 +37,7 @@
             android:value="com.example.store" />
 
         <activity
-            android:name=".CategoryActivity"
+            android:name=".ProductCategoryActivity"
             android:exported="false"
             android:label="@string/title_activity_restaurants"
             android:theme="@style/AppTheme.NoActionBar" />

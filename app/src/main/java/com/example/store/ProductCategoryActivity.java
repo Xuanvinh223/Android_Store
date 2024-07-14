@@ -9,7 +9,6 @@ import android.widget.Toast;
 import com.example.store.Adapter.ProductAdapter;
 import com.example.store.interfaces.OnItemClickListener;
 import com.example.store.model.Product;
-import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +21,7 @@ import com.example.store.databinding.ActivityCategoryBinding;
 
 import java.util.List;
 
-public class CategoryActivity extends AppCompatActivity {
+public class ProductCategoryActivity extends AppCompatActivity {
 
     private ActivityCategoryBinding binding;
     private RecyclerView recyclerView;
