@@ -44,8 +44,7 @@ public class CategoryActivity extends AppCompatActivity {
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        CollapsingToolbarLayout toolBarLayout = binding.toolbarLayout;
-        toolBarLayout.setTitle(categoryName);
+        toolbar.setTitle(categoryName);
 
         recyclerView = findViewById(R.id.recyclerView_restaurants);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
