@@ -16,7 +16,7 @@
         android:src="@drawable/restaurants"
         android:scaleType="centerCrop" />
 
-    <ImageView
+    <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageViewFavorite"
         android:layout_width="36dp"
         android:layout_height="36dp"
@@ -33,6 +33,7 @@
         android:layout_below="@+id/imageViewProduct"
         android:layout_marginTop="8dp"
         android:paddingTop="16dp"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
     <TextView

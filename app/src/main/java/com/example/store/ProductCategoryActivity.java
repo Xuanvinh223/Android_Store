@@ -41,9 +41,9 @@ public class ProductCategoryActivity extends AppCompatActivity {
         String categoryName = intent.getStringExtra("CATEGORY_NAME");
 
         Toolbar toolbar = binding.toolbar;
+        toolbar.setTitle(categoryName);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setTitle(categoryName);
 
         recyclerView = findViewById(R.id.recyclerView_restaurants);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

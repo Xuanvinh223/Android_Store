@@ -24,7 +24,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
-
+    private Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 if (item.getItemId() == R.id.action_map) {
-                    Intent intent = new Intent(MainActivity.this,MapsActivity.class);
+                    intent = new Intent(MainActivity.this, MapsActivity.class);
                     startActivity(intent);
                     return true;
                 } else if (item.getItemId() == R.id.action_search) {
@@ -68,11 +68,12 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.nav_home) {
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new HomeFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new HomeFragment()).commit();
                 } else if (id == R.id.nav_settings) {
                     Toast.makeText(MainActivity.this, "Settings clicked", Toast.LENGTH_SHORT).show();
                 } else if (id == R.id.nav_category) {
-
+                    intent = new Intent(MainActivity.this, CategoryActivity.class);
+                    startActivity(intent);
                 } else if (id == R.id.nav_dashboard) {
                     System.out.println();
                 } else if (id == R.id.nav_message) {
