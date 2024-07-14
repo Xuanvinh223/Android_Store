@@ -57,7 +57,7 @@ public class CategoryActivity extends AppCompatActivity {
             public void onItemClick(View view, int position) {
                 notificationHelper.showToast(productList.get(position).getName(), Toast.LENGTH_SHORT,R.mipmap.ic_launcher);
             }
-        });
+        }, R.integer.TYPE_CATEGORY);
         recyclerView.setAdapter(productAdapter);
 
     }

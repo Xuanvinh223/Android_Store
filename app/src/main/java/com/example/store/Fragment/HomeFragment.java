@@ -26,6 +26,7 @@ import com.example.store.model.Product;
 import com.orm.SugarRecord;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
@@ -36,9 +37,6 @@ public class HomeFragment extends Fragment {
     private List<Product> productData;
 
     private static final int GRID_SPAN_COUNT = 2;
-    private static final int PRODUCT_START_PRICE = 100;
-    private static final int DATA_SIZE = 20;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -49,6 +47,8 @@ public class HomeFragment extends Fragment {
 
         categoriesData = Category.listAll(Category.class);
         productData = Product.listAll(Product.class);
+
+        Collections.shuffle(productData);
 
         // Setup RecyclerViews
         recyclerViewCategory = setupRecyclerView(view, R.id.recyclerView_category, LinearLayoutManager.HORIZONTAL, new CategoryAdapter(categoriesData, new OnItemClickListener() {
@@ -66,12 +66,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(View view,int position) {
                 String nameProduct = productData.get(position).getName();
-//                Intent intent = new Intent(getActivity(), RestaurantsActivity.class);
-//                intent.putExtra("ITEM_DATA", nameProduct);
-//                startActivity(intent);
                 Toast.makeText(getActivity(), "Đã click : " + nameProduct + " " + position, Toast.LENGTH_SHORT).show();
             }
-        }));
+        }, R.integer.TYPE_HOME));
 
         // Setup TextViews
         setupTextView(view, R.id.tv_popular, "Popular categories", R.color.grey_500);
