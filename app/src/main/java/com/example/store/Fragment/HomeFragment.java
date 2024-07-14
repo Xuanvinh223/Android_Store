@@ -61,7 +61,7 @@ public class HomeFragment extends Fragment {
                 intent.putExtra("CATEGORY_NAME",categoryName);
                 startActivity(intent);
             }
-        }));
+        }, R.integer.TYPE_HOME));
         recyclerViewProduct = setupRecyclerView(view, R.id.recyclerView_product, GRID_SPAN_COUNT, new ProductAdapter(productData, new OnItemClickListener() {
             @Override
             public void onItemClick(View view,int position) {

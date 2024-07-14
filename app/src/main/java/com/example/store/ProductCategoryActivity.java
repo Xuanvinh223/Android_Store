@@ -48,7 +48,6 @@ public class ProductCategoryActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView_restaurants);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        productList = Product.listAll(Product.class);
         productList = Product.find(Product.class, "CATEGORY_ID = ?", String.valueOf(categoryId));
         productAdapter = new ProductAdapter(productList, new OnItemClickListener() {
             @Override
