@@ -7,55 +7,48 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ScrollView
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="none">
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/custom_color"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/search_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:background="@android:color/transparent"
+                android:hint="Search"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@android:color/white" />
+        </androidx.appcompat.widget.Toolbar>
 
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="@color/custom_color"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-                    <EditText
-                        android:id="@+id/search_edit_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:padding="8dp"
-                        android:textColor="@android:color/white"
-                        android:hint="Search"
-                        android:background="@android:color/transparent"
-                        android:maxLines="1" />
-                </androidx.appcompat.widget.Toolbar>
-                <!-- Nội dung chính của Activity -->
-                <FrameLayout
-                    android:id="@+id/content_frame"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-        </ScrollView>
 
+        <!-- Nội dung chính của Activity -->
+        <FrameLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar" />
         <!-- Floating Action Button -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
             android:background="@drawable/rounded_fab"
-            android:src="@android:drawable/ic_input_add"/>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            android:src="@android:drawable/ic_input_add" />
+    </RelativeLayout>
+
 
     <!-- Navigation View -->
     <com.google.android.material.navigation.NavigationView
