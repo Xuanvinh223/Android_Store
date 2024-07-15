@@ -70,7 +70,8 @@ public class MainActivity extends AppCompatActivity {
                 if (id == R.id.nav_home) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new HomeFragment()).commit();
                 } else if (id == R.id.nav_settings) {
-                    Toast.makeText(MainActivity.this, "Settings clicked", Toast.LENGTH_SHORT).show();
+                    intent = new Intent(MainActivity.this, ProfileActivity.class);
+                    startActivity(intent);
                 } else if (id == R.id.nav_category) {
                     intent = new Intent(MainActivity.this, CategoryActivity.class);
                     startActivity(intent);

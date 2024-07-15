@@ -10,7 +10,7 @@
     <item
         android:id="@+id/action_map"
         android:icon="@drawable/ic_map"
-        android:title="Settings"
+        android:title="Map"
         app:showAsAction="ifRoom" />
 
 </menu>
