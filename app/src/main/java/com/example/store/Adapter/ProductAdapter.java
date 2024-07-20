@@ -21,6 +21,7 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private final int typeView;
     private static final int TYPE_HOME = R.integer.TYPE_HOME;
     private static final int TYPE_CATEGORY = R.integer.TYPE_CATEGORY;
+    private static final int TYPE_DASHBOARD = R.integer.TYPE_DASHBOARD;
 
     public ProductAdapter(List<Product> data, OnItemClickListener listener, int typeView) {
         this.data = data;
@@ -38,6 +39,9 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         } else if (this.typeView == TYPE_CATEGORY) {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_category_product, parent, false);
             return new CategoryViewHolder(view, listener);
+        } else if (this.typeView == TYPE_DASHBOARD) {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product_dashboard, parent, false);
+            return new DashboardViewHolder(view, listener);
         }
         view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_product, parent, false);
         return new ProductViewHolder(view, listener);
@@ -50,6 +54,8 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             ((ProductViewHolder) holder).bind(product);
         } else if (holder instanceof CategoryViewHolder) {
             ((CategoryViewHolder) holder).bind(product);
+        } else if (holder instanceof DashboardViewHolder) {
+            ((DashboardViewHolder) holder).bind(product);
         }
     }
 
@@ -95,6 +101,37 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         TextView textViewProductPrice;
 
         public CategoryViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
+            super(itemView);
+            imageViewProduct = itemView.findViewById(R.id.imageViewProduct);
+            textViewProductName = itemView.findViewById(R.id.textViewProductName);
+            textViewProductPrice = itemView.findViewById(R.id.textViewProductPrice);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onItemClick(v, position);
+                        }
+                    }
+                }
+            });
+        }
+
+        void bind(Product product) {
+            imageViewProduct.setImageResource(product.getImageResId());
+            textViewProductName.setText(product.getName());
+            textViewProductPrice.setText(product.getPrice() + "$");
+        }
+    }
+
+    public static class DashboardViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageViewProduct;
+        TextView textViewProductName;
+        TextView textViewProductPrice;
+
+        public DashboardViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             imageViewProduct = itemView.findViewById(R.id.imageViewProduct);
             textViewProductName = itemView.findViewById(R.id.textViewProductName);
