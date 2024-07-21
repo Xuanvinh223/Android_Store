@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ import com.example.store.model.Category;
 import com.example.store.model.Product;
 import com.orm.SugarRecord;
 
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -61,6 +63,7 @@ public class HomeFragment extends Fragment {
                 intent.putExtra("CATEGORY_NAME",categoryName);
                 startActivity(intent);
             }
+
         }, R.integer.TYPE_HOME));
         recyclerViewProduct = setupRecyclerView(view, R.id.recyclerView_product, GRID_SPAN_COUNT, new ProductAdapter(productData, new OnItemClickListener() {
             @Override
@@ -71,8 +74,10 @@ public class HomeFragment extends Fragment {
         }, R.integer.TYPE_HOME));
 
         // Setup TextViews
-        setupTextView(view, R.id.tv_popular, "Popular categories", R.color.grey_500);
-        setupTextView(view, R.id.tv_popular_listings, "Popular listings", R.color.grey_500);
+        setupTextView(view, R.id.tv_popular, "Popular categories", R.color.black);
+        setupTextView(view, R.id.tv_popular_listings, "Popular listings", R.color.black);
+
+
 
         return view;
     }
@@ -93,7 +98,7 @@ public class HomeFragment extends Fragment {
         List<Product> productList = new ArrayList<>();
         for (Category category : categories) {
             for (int i = 1; i <= 5; i++) {
-                productList.add(new Product(R.drawable.restaurants, category.getName(), 100 * i, category.getId()));
+                productList.add(new Product(R.drawable.restaurants, category.getName(), 100 * i, category.getId(), 4.2));
             }
         }
         SugarRecord.saveInTx(productList);

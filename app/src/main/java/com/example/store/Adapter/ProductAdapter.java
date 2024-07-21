@@ -71,9 +71,9 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         public ProductViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
-            imageViewProduct = itemView.findViewById(R.id.imageViewProduct);
-            textViewProductName = itemView.findViewById(R.id.textViewProductName);
-            textViewProductPrice = itemView.findViewById(R.id.textViewProductPrice);
+            imageViewProduct = itemView.findViewById(R.id.imageViewProduct_home_product);
+            textViewProductName = itemView.findViewById(R.id.textViewProductName_home_product);
+            textViewProductPrice = itemView.findViewById(R.id.textViewProductPrice_home_product);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -89,7 +89,6 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         }
 
         void bind(Product product) {
-            imageViewProduct.setImageResource(product.getImageResId());
             textViewProductName.setText(product.getName());
             textViewProductPrice.setText(product.getPrice() + " $");
         }

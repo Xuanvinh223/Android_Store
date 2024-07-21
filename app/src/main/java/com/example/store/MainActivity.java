@@ -76,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
                     intent = new Intent(MainActivity.this, CategoryActivity.class);
                     startActivity(intent);
                 } else if (id == R.id.nav_dashboard) {
+                    intent = new Intent(MainActivity.this, DashboardActivity.class);
+                    startActivity(intent);
                     System.out.println();
                 } else if (id == R.id.nav_message) {
                     System.out.println();

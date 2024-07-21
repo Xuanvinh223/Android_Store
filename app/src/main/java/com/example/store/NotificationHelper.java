@@ -70,16 +70,13 @@ public class NotificationHelper {
     }
 
     // Method to show AlertDialog
-    public void showAlertDialog(String title, String message, String positiveButtonText, DialogInterface.OnClickListener positiveButtonListener,
-                                String negativeButtonText, DialogInterface.OnClickListener negativeButtonListener) {
+    public void showAlertDialog(String title, String[] options, DialogInterface.OnClickListener optionClickListener) {
         if (context instanceof AppCompatActivity) {
             AppCompatActivity activity = (AppCompatActivity) context;
             if (!activity.isFinishing() && !activity.isDestroyed()) {
                 new AlertDialog.Builder(context)
                         .setTitle(title)
-                        .setMessage(message)
-                        .setPositiveButton(positiveButtonText, positiveButtonListener)
-                        .setNegativeButton(negativeButtonText, negativeButtonListener)
+                        .setItems(options, optionClickListener)
                         .show();
             }
         }

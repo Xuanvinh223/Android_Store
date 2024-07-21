@@ -19,15 +19,19 @@ public class Product extends SugarRecord {
     @Column(name = "CATEGORY_ID")
     private Long categoryId; // Để lưu trữ ID của Category
 
+    @Column(name = "RATING")
+    private double rating;
+
     public Product() {
 
     }
 
-    public Product(int imageResId, String name, int price, Long categoryId) {
+    public Product(int imageResId, String name, int price, Long categoryId, double rating) {
         this.imageResId = imageResId;
         this.name = name;
         this.price = price;
         this.categoryId = categoryId;
+        this.rating = rating;
     }
 
     public int getImageResId() {
@@ -60,5 +64,13 @@ public class Product extends SugarRecord {
 
     public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
     }
 }

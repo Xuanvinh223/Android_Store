@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.example.store.Adapter.CategoryAdapter;
 import com.example.store.interfaces.OnItemClickListener;
 import com.example.store.model.Category;
+import com.example.store.model.Product;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
