@@ -3,6 +3,7 @@ package com.example.store.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.store.interfaces.OnItemClickListener;
 import com.example.store.R;
+import com.example.store.interfaces.OnItemClickListenerFavorite;
 import com.example.store.model.Product;
 
 import java.util.List;
@@ -68,13 +70,16 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         ImageView imageViewProduct;
         TextView textViewProductName;
         TextView textViewProductPrice;
+        ImageView imageViewFavorite;
+        FrameLayout layout_favorites;
 
         public ProductViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             imageViewProduct = itemView.findViewById(R.id.imageViewProduct_home_product);
             textViewProductName = itemView.findViewById(R.id.textViewProductName_home_product);
             textViewProductPrice = itemView.findViewById(R.id.textViewProductPrice_home_product);
-
+            imageViewFavorite = itemView.findViewById(R.id.imageViewFavorite);
+            layout_favorites = itemView.findViewById(R.id.layout_favorites);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -91,6 +96,24 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         void bind(Product product) {
             textViewProductName.setText(product.getName());
             textViewProductPrice.setText(product.getPrice() + " $");
+            imageViewProduct.setImageResource(product.getImageResId());
+
+            layout_favorites.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        Integer currentDrawable = (Integer) imageViewFavorite.getTag();
+                        if (currentDrawable != null && currentDrawable == R.drawable.ic_heart) {
+                            imageViewFavorite.setImageResource(R.drawable.ic_heart_boder);
+                            imageViewFavorite.setTag(R.drawable.ic_heart_boder);
+                        } else {
+                            imageViewFavorite.setImageResource(R.drawable.ic_heart);
+                            imageViewFavorite.setTag(R.drawable.ic_heart);
+                        }
+                    }
+                }
+            });
         }
     }
 

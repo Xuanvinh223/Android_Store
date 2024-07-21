@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +25,6 @@ import com.example.store.model.Category;
 import com.example.store.model.Product;
 import com.orm.SugarRecord;
 
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -71,6 +69,7 @@ public class HomeFragment extends Fragment {
                 String nameProduct = productData.get(position).getName();
                 Toast.makeText(getActivity(), "Đã click : " + nameProduct + " " + position, Toast.LENGTH_SHORT).show();
             }
+
         }, R.integer.TYPE_HOME));
 
         // Setup TextViews
