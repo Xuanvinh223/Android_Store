@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.store.interfaces.OnItemClickListener;
 import com.example.store.R;
-import com.example.store.interfaces.OnItemClickListenerFavorite;
 import com.example.store.model.Product;
 
 import java.util.List;

@@ -3,9 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".MyApplication"
@@ -32,23 +29,6 @@
             android:exported="false"
             android:label="@string/title_activity_category"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCmf6H2ROBxFmFXT6q8VejnwSHOPkJYaj8" />
-        <meta-data
-            android:name="DATABASE"
-            android:value="store.db" />
-        <meta-data
-            android:name="VERSION"
-            android:value="9" />
-        <meta-data
-            android:name="QUERY_LOG"
-            android:value="true" />
-        <meta-data
-            android:name="DOMAIN_PACKAGE_NAME"
-            android:value="com.example.store" />
-
         <activity
             android:name=".ProductCategoryActivity"
             android:exported="false"
@@ -61,6 +41,21 @@
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyCmf6H2ROBxFmFXT6q8VejnwSHOPkJYaj8" />
+            <meta-data
+                android:name="DATABASE"
+                android:value="store.db" />
+            <meta-data
+                android:name="VERSION"
+                android:value="9" />
+            <meta-data
+                android:name="QUERY_LOG"
+                android:value="true" />
+            <meta-data
+                android:name="DOMAIN_PACKAGE_NAME"
+                android:value="com.example.store" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -68,5 +63,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
